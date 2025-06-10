@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mutia jenifer</title>
+<style>
+  :root {
+    --color-primary: #d982b5;
+    --color-secondary: #a7c7e7;
+    --color-accent: #f7cac9;
+    --color-dark: #4a3c6d;
+    --color-light: #fef6f9;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; 
+    font-family: var(--font-family);
+    background: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  header h1 {
+    margin: 0;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: var(--color-accent);
+  }
+
+  /* Hero Section */
+  #hero {
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1171&q=80') no-repeat center center/cover;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+    color: white;
+  }
+  #hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(217, 130, 181, 0.7);
+    z-index: 0;
+  }
+
+  #hero .content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+  }
+  #hero h2 {
+    font-size: 3rem;
+    margin-bottom: 0.2rem;
+    font-family: 'Brush Script MT', cursive;
+    text-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+  #hero p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 8px rgba(0,0,0,0.3);
+  }
+  #hero img {
+    border-radius: 50%;
+    border: 6px solid white;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-top: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  /* Main content */
+  main {
+    max-width: 960px;
+    margin: 2rem auto 4rem;
+    padding: 0 1rem;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 3rem;
+  }
+  section h3 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--color-accent);
+    display: inline-block;
+    padding-bottom: 0.3rem;
+    font-family: 'Brush Script MT', cursive;
+  }
+
+  /* About */
+  #about p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    text-align: center;
+    color: #5a3e5c;
+  }
+
+  /* Skills */
+  #skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  #skills li {
+    background: var(--color-accent);
+    border-radius: 30px;
+    padding: 0.6rem 1.2rem;
+    margin: 0.5rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    position: relative;
+    font-size: 1rem;
+  }
+  #skills li::before {
+    content: "🌸";
+    margin-right: 0.6rem;
+  }
+
+  /* Portfolio */
+  #portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(217,130,181,0.25);
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card:hover {
+    box-shadow: 0 8px 24px rgba(217,130,181,0.5);
+  }
+  .project-image {
+    width: 200%;
+    object-fit: cover;
+    height: 170px;
+  }
+  .project-info {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .project-info h4 {
+    margin: 0 0 0.5rem;
+    color: var(--color-primary);
+  }
+  .project-info p {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    color: #6b4f6b;
+  }
+
+  /* Contact */
+  #contact {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  #contact form {
+    display: flex;
+    flex-direction: column;
+  }
+  #contact label {
+    margin: 0.6rem 0 0.2rem;
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+  #contact input,
+  #contact textarea {
+    padding: 0.6rem;
+    border: 2px solid var(--color-accent);
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  #contact textarea {
+    min-height: 80px;
+  }
+  #contact button {
+    margin-top: 1rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #contact button:hover {
+    background: var(--color-dark);
+  }
+
+  /* Footer */
+  footer {
+    background: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+  }
+  footer .flower-icon {
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* Responsive */
+  @media (max-width: 500px) {
+    #hero h2 {
+      font-size: 2.2rem;
+    }
+    #hero p {
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Mutia<span style="font-size: 2 rem;"> Jenifer 🌸</span></h1>
+  <nav>
+    <a href="#about">Tentang</a>
+    <a href="#skills">Keahlian</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+</header>
+
+<section id="hero">
+  <div class="content">
+    <h2>Mutia Jenifer</h2>
+    <img src="mutia.jpg" alt="Foto Siswi" />
+  </div>
+</section>
+
+<main>
+  <section id="about">
+    <h3>Tentang Saya</h3>
+    <p>Halo! Saya seorang siswi SMKN 7 Batam jurusan Teknik Jaringan Akses dan Telekomunikasi (TJAT). Saya memiliki semangat dan kemauan tinggi untuk mempelajari hal hal baru.</p>
+  </section>
+
+  <section id="skills">
+    <h3>Keahlian</h3>
+    <ul>
+      <li>Jaringan Komputer</li>
+      <li>Microsoft Word</li>
+      <li>Microsoft Excel</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h3>Kontak</h3>
+    <form onsubmit="event.preventDefault(); alert('Terima kasih sudah menghubungi!'); this.reset();">
+      <label for="name">Nama:</label>
+      <input type="text" id="name" name="name" placeholder="Mutia Jenifer" required />
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Mutiajenifer52@gmail.com" required />
+      
+      <label for="message">Pesan:</label>
+      <textarea id="message" name="message" placeholder="Be proud of yourself how hard you are trying everyday" required></textarea>
+      
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 Mutia jenifer <span class="flower-icon">🌸</span>
+</footer>
+</body>
+</html>
+
